@@ -13,6 +13,6 @@ kliep.fit(X_train, X_test) # keyword arguments are X_train and X_test
 weights = kliep.predict(X_train)
 
 rf = RandomForestRegressor()
-rf2.fit(X_train, y_train, sample_weight=weights) # Train using the sample weights!
+rf.fit(X_train, y_train, sample_weight=weights) # Train using the sample weights!
 
 ```
