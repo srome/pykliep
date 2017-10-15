@@ -6,6 +6,8 @@ The DensityRatioEstimator class implements the [Kullback-Leibler Importance Esti
 ## Usage
 
 ```python
+from pykliep import DensityRatioEstimator 
+
 kliep = DensityRatioEstimator()
 kliep.fit(X_train, X_test) # keyword arguments are X_train and X_test
 weights = kliep.predict(X_train)
