@@ -1,6 +1,6 @@
 import numpy as np
 import warnings
-
+from future.utils import iteritems
 class DensityRatioEstimator:
     """
     Class to accomplish direct density estimation implementing the original KLIEP 
@@ -83,7 +83,7 @@ class DensityRatioEstimator:
                                                          sigma=sigma)
                     j_scores[(num_param,sigma)] = np.mean(j_scores[(num_param,sigma)])
 
-            sorted_scores = sorted([x for x in j_scores.iteritems() if np.isfinite(x[1])], key=lambda x :x[1], reverse=True)
+            sorted_scores = sorted([x for x in iteritems(j_scores) if np.isfinite(x[1])], key=lambda x :x[1], reverse=True)
             if len(sorted_scores) == 0:
                 warnings.warn('LCV failed to converge for all values of sigma.')
                 return self
